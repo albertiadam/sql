@@ -2,7 +2,7 @@ SELECT
 	CASE
     	WHEN kor BETWEEN 0 and 18 THEN 'Gyerek'
     	WHEN kor BETWEEN 18 and 30 THEN 'Fiatalkorú'
-    	WHEN kor BETWEEN 30 and 60 THEN 'Középkorú'
+    	WHEN kor BETWEEN 30 and 55 THEN 'Középkorú'
     	ELSE 'Időskorú'
     	END as 'Korcsoportok',
 	COUNT(vizsgalat_id) as 'Vizsgálatok száma'
@@ -10,7 +10,7 @@ FROm Paciens p JOIN Vizsgalat v ON p.paciens_id=v.paciens_id
 GROUP BY (CASE
     WHEN kor BETWEEN 0 and 18 THEN 'Gyerek'
     WHEN kor BETWEEN 18 and 30 THEN 'Fiatalkorú'
-    WHEN kor BETWEEN 30 and 60 THEN 'Középkorú'
+    WHEN kor BETWEEN 30 and 55 THEN 'Középkorú'
     ELSE 'Időskorú'
     END)
 ORDER BY Count(vizsgalat_id) DESC
